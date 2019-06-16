@@ -26,3 +26,15 @@ List commands, list volumes, snapshots and cryptographic users
 Install All Available Software Updates
 
     sudo softwareupdate -ia
+
+# Add user to sudoers
+
+Administrators are added to sudoers by default.
+
+    su -l admin # Become administrator
+    sudo touch /var/sudoers.d/other_users
+    sudo visudo -f /var/sudoers.d/other_users
+
+Add the following line
+
+    someuser        ALL = (ALL) ALL
