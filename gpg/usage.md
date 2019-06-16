@@ -1,16 +1,24 @@
-gpg, pgp, encryption
+# Encrypting and decrypting documents
 
-# Getting started
+To encrypt a document the option --encrypt is used. You must have the public keys of the intended recipients.
 
-Install 
+```bash
+alice% gpg --output doc.gpg --encrypt --recipient blake@cyb.org doc
+```
 
-    brew install gpg pwgen
+To decrypt a message the option --decrypt is used. You need the private key to which the message was encrypted.
 
-Generate key pair (passphrase must include a digit) and revokation certificate
+```bash
+blake% gpg --output doc --decrypt doc.gpg
+```
 
-    gpg --gen-key
+Documents may also be encrypted without using public-key cryptography.
 
-# Basics
+```bash
+alice% gpg --output doc.gpg --symmetric doc
+```
+
+# Managing keys
 
 To communicate with others you must exchange public keys. To list the keys on your public keyring use the command-line option --list-keys.
 
@@ -36,12 +44,12 @@ To encrypt a document the option --encrypt is used. You must have the public key
 To decrypt a message the option --decrypt is used. You need the private key to which the message was encrypted. Similar to the encryption process, the document to decrypt is input, and the decrypted result is output.
 
     blake% gpg --output doc --decrypt doc.gpg
-    Enter passphrase: 
+    Enter passphrase:
 
 Documents may also be encrypted without using public-key cryptography. Instead, only a symmetric cipher is used to encrypt the document.
 
     alice% gpg --output doc.gpg --symmetric doc
-    Enter passphrase: 
+    Enter passphrase:
 
 # Creating a new revokation certificate
 

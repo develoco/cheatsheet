@@ -233,3 +233,7 @@ Create a file from the console, using `banana` as an exit word
     ln -s ~/eight-octo-recipes/themes/deepbluesea wp-content/themes/
     ln -s ~/eight-octo-recipes/plugins/octofacts.php wp-content/plugins/
     banana
+
+# List all files in tree
+
+    find "$PWD" -type f
