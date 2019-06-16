@@ -1,2 +1,4 @@
 .DS_Store
-/project.xcworkspace
+/project.xcworkspace/xcuserdata
+gitconfig.user
+
