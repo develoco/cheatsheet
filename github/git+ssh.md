@@ -8,7 +8,7 @@ Add the public key to GitHub: https://help.github.com/en/articles/generating-a-n
 
 You can use one GitHub account with `https` and your secondary account with _SSH_ using your default remote URL:
 
-    git@github.com:company/repo.git
+    git@github.com:[USER]/repo.git
 
 In which case your `~/.ssh/config` would look like:
 
@@ -19,13 +19,18 @@ Host github.com
 
 Or you can modify the remote URL slightly for multiple SSH accounts:
 
-    git@company.github.com:company/repo.git
+    [USER].github.com:[USER]/repo
 
 With a corresponding SSH config:
 
 ```
-Host company.github.com
+Host *
+  IdentitiesOnly yes # Prevents agent to sending all keys
+
+Host [USER].github.com
   User git
   HostName github.com
-  IdentityFile ~/.ssh/id_rsa.github.company
+  IdentityFile ~/.ssh/id_rsa.[USER]
+  UseKeychain yes
+  AddKeysToAgent yes
 ```
