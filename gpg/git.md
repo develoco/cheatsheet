@@ -130,6 +130,10 @@ error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
 
+#### Solution
+
+    gpgconf --kill gpg-agent
+
 https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
 https://stackoverflow.com/questions/41502146/git-gpg-onto-mac-osx-error-gpg-failed-to-sign-the-data
