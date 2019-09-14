@@ -24,13 +24,38 @@ Or you can modify the remote URL slightly for multiple SSH accounts:
 With a corresponding SSH config:
 
 ```
-Host *
-  IdentitiesOnly yes # Prevents agent to sending all keys
-
 Host [USER].github.com
   User git
   HostName github.com
   IdentityFile ~/.ssh/id_rsa.[USER]
   UseKeychain yes
   AddKeysToAgent yes
+
+Host *
+  IdentitiesOnly yes # Prevents agent to sending all keys
+```
+
+## Troubleshooting
+
+### Private repo can't be found / wrong user
+
+```
+% git push         
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+```
+
+Git can't see the repo because your host is sending the wrong key.
+
+#### Solution
+
+Add this to your `~/.ssh/config`
+
+```
+Host *
+  IdentitiesOnly yes
 ```

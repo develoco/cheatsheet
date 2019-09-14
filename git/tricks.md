@@ -105,6 +105,14 @@ CommitDate: Sun Jun 2 12:00:00 2019 +0000
 
 For bulk editting of previos commits see https://alexpeattie.com/blog/working-with-dates-in-git
 
+## Back-dating tags
+
+    GIT_COMMITTER_DATE="2019-09-14 12:00:29 +0000" git tag -s -m "Build #5" 1.0.1
+
+Verify
+
+    git show --format=fuller 1.0.1
+
 # Use Xcode as editor
 
     git config --global core.editor "xed -w"
