@@ -28,11 +28,9 @@ Host [USER].github.com
   User git
   HostName github.com
   IdentityFile ~/.ssh/id_rsa.[USER]
+  IdentitiesOnly yes # Prevents agent to sending all keys
   UseKeychain yes
   AddKeysToAgent yes
-
-Host *
-  IdentitiesOnly yes # Prevents agent to sending all keys
 ```
 
 ## Troubleshooting
